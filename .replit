@@ -1,5 +1,6 @@
 run= "npm start"
-hidden = [".config", "package-lock.json"]
+hidden = [".config", 
+"package-lock.json"]
 
 
 [[hints]]

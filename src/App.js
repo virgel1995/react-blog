@@ -1,21 +1,39 @@
 import React, { Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter , Routes, Route, Navigate } from 'react-router-dom';
+
 import './App.css';
 import { 
 	APP_ROUTES , 
 	storeTokenInLocalStorage 
 			 } from "./Api"
 // import pages from Pages dir
+/*
 import { 
 	Landing ,
 	Home ,
 	Login,
 	Rigster,
-	NotFound
+	NotFound,
+	About
 } from "./Pages"
-import { NavBar , Footer } from "./Ui"
-//const Landing = lazy(() => import('./Pages'));
-const About = lazy(() => import('./Pages'));
+
+import { NavBar , Footer } from "./Ui"*/
+const Landing = lazy(() => import('./Pages/Landing'));
+const About = lazy(() => import('./Pages/About'));
+	const Home = lazy(() => import('./Pages/Home'))
+	const Login = lazy(() => import('./Pages/Auth/Login'))
+ const	Rigster = lazy(() => import('./Pages/Auth/Rigster'))
+const	NotFound = lazy(() => import('./Pages/Error/404'))
+const Posts = lazy(()=> 
+	import ("./Pages/Posts"))
+
+
+				//ui 
+const	NavBar = lazy(() => import('./Ui/Navbar'))
+const	Footer = lazy(() => import('./Ui/Footer'))
+const Loader =  lazy(() => import("./Ui/Loader"))
+// SEO
+const	Seo = lazy(() => import('./Components/Seo'))
 
 function App() {
 	useEffect(() => {
@@ -36,19 +54,22 @@ function App() {
 	
   return (
 		<BrowserRouter>
-    <Suspense fallback={<div>Loading...</div>}>
+			<Seo />
+    <Suspense fallback={<Loader />}>
 			<NavBar />
       <Routes>
-<Route exact path="/" element={<Navigate to={APP_ROUTES.HOME} />} />
+				{/*<Route exact path="/" element={<Navigate to={APP_ROUTES.HOME} />} />*/}
+				
+<Route path={APP_ROUTES.POSTS} exact element={<Landing />} />
         <Route path={APP_ROUTES.SIGN_UP} exact element={<Rigster />} />
         <Route path={APP_ROUTES.SIGN_IN} element={<Login />} />
         <Route path={APP_ROUTES.HOME} element={<Home />} />
 
-
+<Route path= {APP_ROUTES.LANDING} element= {<Posts />} />
 
 				
-				{/* Error Pages  */}
-			<Route path="/*" element={<NotFound />} />
+				{/* Error Page  */}
+			<Route path={APP_ROUTES.ERROR} element={<NotFound />} />
       </Routes>
 			<Footer />
     </Suspense>

@@ -1,8 +1,9 @@
-export {  NavBar } from "./Navbar"
+export {  default as NavBar } from "./Navbar"
 
-export { Sidebar } from "./Sidebar"
+export { default as Sidebar } from "./Sidebar"
 
-export { Footer } from "./Footer"
-export {UserAvatar } from "./UserAvatar"
-export { Name } from "./Name"
-export { ImageSkin } from "./ImageSkin"
+export { default as Footer } from "./Footer"
+export { default as UserAvatar } from "./UserAvatar"
+export { default as Name } from "./Name"
+export { default as ImageSkin } from "./ImageSkin"
+export { default as Loader } from "./Loader"

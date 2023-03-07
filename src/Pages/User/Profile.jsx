@@ -4,7 +4,7 @@
 
 
 
-export function Profile() {
+export default function Profile() {
 
 
 

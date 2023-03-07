@@ -2,7 +2,7 @@ import { Sidebar } from "../../Ui"
 import { Posts } from "../../Components"
 
 
-export function About() {
+export default function About() {
    return (
 <>
 <div id="About" style={{height:"800px"}}>

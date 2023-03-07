@@ -44,7 +44,7 @@ export function SocialButton ({
   );
 };
 
-export function Footer() {
+export default function Footer() {
 	const Year = new Date().getFullYear();
   return (
     <Box

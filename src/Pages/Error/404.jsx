@@ -3,7 +3,7 @@
 
 
 
-export function NotFound() {
+export default function NotFound() {
 
 
 return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useUser } from '../../Api/useUser';
 
-export function Home () {
+export default function Home () {
   const { user, authenticated } = useUser();
   if (!user || !authenticated) {
     return <div className="p-16 bg-gray-800 h-screen">

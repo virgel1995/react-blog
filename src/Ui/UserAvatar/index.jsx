@@ -1,6 +1,6 @@
 import { Avatar, Box, Flex, keyframes } from '@chakra-ui/react';
 
-export function UserAvatar() {
+export default function UserAvatar() {
   const size = '40px';
   const color = '#ffeca2';
 
@@ -44,7 +44,7 @@ export function UserAvatar() {
           animation: `2.25s ${pulseRing} cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite`,
         }}>
         <Avatar
-          src="https://avatars.githubusercontent.com/u/103638279?s=96&v=4"
+          src="/assets/admin.jpg"
           size="full"
           position="absolute"
           top={0}

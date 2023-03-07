@@ -10,7 +10,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 
-export function ImageSkin() {
+export default function ImageSkin() {
   return (
     <Center as='section' bg='gray.100' h='100vh'>
       <Box maxW='420px' bg='white' p='6'>

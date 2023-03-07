@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { ApiRigster, APP_ROUTES } from '../../Api';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link as Linker, useNavigate } from 'react-router-dom';
 import {
   Flex,
   Box,
@@ -14,6 +14,7 @@ import {
   InputRightElement,
   Stack,
   Button,
+	Link,
   Heading,
   Text,
   useColorModeValue,
@@ -22,7 +23,7 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
 
 
-export function Rigster () {
+export default function Rigster () {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [gender, setGender] = useState('');
@@ -56,7 +57,7 @@ return (
       minH={'100vh'}
       align={'center'}
       justify={'center'}
-      bg={useColorModeValue('gray.50', 'gray.800')}>
+     bgGradient={"linear(to-b, white.200, pink.500)"}>
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Stack align={'center'}>
           <Heading fontSize={'4xl'} textAlign={'center'}>
@@ -68,7 +69,7 @@ return (
         </Stack>
         <Box
           rounded={'lg'}
-          bg={useColorModeValue('white', 'gray.700')}
+          bgGradient={"linear(to-t, white.200, pink.500)"}
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
@@ -135,7 +136,16 @@ return (
             </Stack>
             <Stack pt={6}>
               <Text align={'center'}>
-                Already a user? <Link to="/signin" color={'blue.400'}>Login</Link>
+                Already a user? <Linker to="/signin">
+									<Link  
+	href= "#"
+																		 p= "2"
+		rounded={'lg'}
+bgGradient="linear(to-r, green.200, pink.500)" color={'aqua'}
+										>
+									Login
+								</Link>
+								</Linker>
               </Text>
             </Stack>
           </Stack>

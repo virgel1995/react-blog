@@ -21,8 +21,9 @@ import {
 } from "@chakra-ui/icons";
 import { UserAvatar, Name}  from "../";
 import "./Navbar.css";
+import { Link } from 'react-router-dom';
 
-export function NavBar() {
+export default function NavBar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -61,29 +62,29 @@ export function NavBar() {
                 id="myDIV"
               >
                 <Button className="btnRes">
-                  <a href="#Home">
+                  <Link to="/home">
                     {" "}
                     <b>Home</b>
-                  </a>
-                </Button>
+									</Link>
+               </Button>
 
                 <Button className="btnRes">
-                  <a href="#About">
+                  <Link to="/about">
                     <b>About</b>
-                  </a>
+									</Link>
                 </Button>
 
                 <Button className="btnRes">
-                  <a href="#Skills">
+                  <Link to="/signin">
                     {" "}
-                    <b>Skills</b>
-                  </a>
+                    <b>Login</b>
+									</Link>
                 </Button>
 
                 <Button className="btnRes">
-                  <a href="#Projects">
-                    <b>Projects</b>
-                  </a>
+                  <Link to="/signup">
+                    <b>Rigster</b>
+                  </Link>
                 </Button>
 
                 <Button className="btnRes">
@@ -117,20 +118,20 @@ export function NavBar() {
                     textShadow: "#FC0 1px 0 10px",
                     transform: "scale(1.2)",
                   }}>
-                  <a href="#Home">
+                  <Link to="/home">
                     {" "}
                     <b>Home</b>
-                  </a>
+									</Link>
                 </Button>
                 <Button  onClick={isOpen ? onClose : onOpen}
                   _hover={{
                     textShadow: "#FC0 1px 0 10px",
                     transform: "scale(1.2)",
                   }}>
-                  <a href="#Home">
+<Link to="/home">
                     {" "}
                     <b>Home</b>
-                  </a>
+                  </Link>
                 </Button>
 
                 <Button  onClick={isOpen ? onClose : onOpen}
@@ -138,20 +139,21 @@ export function NavBar() {
                     textShadow: "#FC0 1px 0 10px",
                     transform: "scale(1.2)",
                   }}>
-                  <a href="#Home">
+              <Link to="/home">
                     {" "}
                     <b>Home</b>
-                  </a>
+                  </Link>
                 </Button>
                 <Button  onClick={isOpen ? onClose : onOpen}
                   _hover={{
                     textShadow: "#FC0 1px 0 10px",
                     transform: "scale(1.2)",
                   }}>
-                  <a href="#Home">
+<Link to="/home">
+
                     {" "}
                     <b>Home</b>
-                  </a>
+</Link>
                 </Button>
                 <Button
                   onClick={isOpen ? onClose : onOpen}
@@ -160,10 +162,11 @@ export function NavBar() {
                     transform: "scale(1.2)",
                   }}
                 >
-                  <a href="#Home">
+<Link to="/home">
+
                     {" "}
                     <b>Home</b>
-                  </a>
+</Link>
                 </Button>
 
                 <Button
@@ -173,9 +176,11 @@ export function NavBar() {
                     transform: "scale(1.2)",
                   }}
                 >
-                  <a href="#About">
+  <Link to="/about">
+
+                    {" "}
                     <b>About</b>
-                  </a>
+</Link>
                 </Button>
 
                 <Button
@@ -185,10 +190,11 @@ export function NavBar() {
                     transform: "scale(1.2)",
                   }}
                 >
-                  <a href="#Skills">
+                  <Link to="/signin">
+
                     {" "}
-                    <b>Skills</b>
-                  </a>
+                    <b>Login</b>
+</Link>
                 </Button>
 
                 <Button
@@ -198,9 +204,11 @@ export function NavBar() {
                     transform: "scale(1.2)",
                   }}
                 >
-                  <a href="#Projects">
-                    <b>Projects</b>
-                  </a>
+                  <Link to="/signup">
+
+                    {" "}
+                    <b>Rigster</b>
+</Link>
                 </Button>
 
                 <Button
@@ -210,9 +218,11 @@ export function NavBar() {
                     transform: "scale(1.2)",
                   }}
                 >
-                  <a href="#Contact">
-                    <b>Contact</b>
-                  </a>
+<Link to="/posts">
+
+                    {" "}
+                    <b>Posts</b>
+</Link>
                 </Button>
               </Stack>
             </Box>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link as Linker, useNavigate } from 'react-router-dom';
 import { 
 	storeTokenInLocalStorage,
 				ApiLogin,
@@ -16,6 +16,8 @@ import {
   Input,
   Checkbox,
   Stack,
+  Link,
+
   Button,
   Heading,
   Text,
@@ -23,7 +25,7 @@ import {
 	Spinner
 } from '@chakra-ui/react';
 
-export function Login (){
+export default function Login (){
 	const navigate = useNavigate();
   const { user, authenticated } = useUser();
   if (user || authenticated) {
@@ -38,11 +40,11 @@ export function Login (){
     try {
       setIsLoading(true);
       const response = await ApiLogin(name, password);
-     if (!response?.data?.token) {
+     /*if (!response?.data?.token) {
         console.log('Something went wrong during signing in: ', response);
         return;
-      }
-      storeTokenInLocalStorage(response.data.token);
+      }*/
+			storeTokenInLocalStorage(response.data.token);
       navigate(APP_ROUTES.HOME)
     }
     catch (err) {
@@ -60,17 +62,29 @@ export function Login (){
       minH={'70vh'}
       align={'center'}
       justify={'center'}
-      bg={useColorModeValue('gray.50', 'gray.800')}>
+     bgGradient={"linear(to-t, white.200, pink.500)"}	>
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Stack align={'center'}>
-          <Heading fontSize={'4xl'}>Sign in to your account</Heading>
-          <Text fontSize={'lg'} color={'gray.600'}>
-            Not a User ?  Enjoy Us <Link to="/signup" color={'blue.400'}>SignUp</Link> 
+          <Heading 
+						p= "2"
+						rounded={'lg'}
+bgGradient="linear(to-r, green.200, pink.500)"		
+						fontSize={'2xl'}>Sign in to your account</Heading>
+          <Text 
+					p= "2"
+						rounded={'lg'}
+bgGradient="linear(to-l, green.200, pink.500)"	
+		fontSize={'lg'} color={'gray.600'}>
+            Not a User ?  Enjoy Us <Linker to="/signup" ><Link 													 p= "2"
+		rounded={'lg'}
+bgGradient="linear(to-r, green.200, pink.500)" color={'aqua'}>SignUp</Link> </Linker>
           </Text>
         </Stack>
         <Box
           rounded={'lg'}
-          bg={useColorModeValue('white', 'gray.700')}
+         
+					
+bgGradient={"linear(to-t, green.200, pink.500)"}		
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
@@ -92,7 +106,7 @@ export function Login (){
                 align={'start'}
                 justify={'space-between'}>
                 <Checkbox>Remember me</Checkbox>
-                <Link color={'blue.400'}>Forgot password?</Link>
+                <Link  color={'blue.400'}>Forgot password?</Link>
               </Stack>
               <Button
 								            onClick={signIn}
